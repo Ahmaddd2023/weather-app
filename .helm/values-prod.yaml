@@ -1,7 +1,0 @@
-frontend:
-  www: false
-  auth: false
-  worker_replicas: 1
-  replicas: 1
-  port: 80
-  url: prod.brnz.ai.techfunder.de
