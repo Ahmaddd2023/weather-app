@@ -1,0 +1,23 @@
+configVersion: 1
+project: brains-v4
+---
+image: node16
+from: node:16-alpine
+---
+image: nginx
+from: nginx:alpine
+---
+image: frontend
+dockerfile: docker/Dockerfile
+context: .
+args:
+  ENV_FILE: {{ if eq .Env "dev" }}development{{ else }}production{{ end }}
+dependencies:
+- image: node16
+  imports:
+  - type: ImageName
+    targetBuildArg: NODE_IMAGE
+- image: nginx
+  imports:
+  - type: ImageName
+    targetBuildArg: NGINX_IMAGE

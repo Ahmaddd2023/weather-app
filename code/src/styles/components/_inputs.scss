@@ -1,0 +1,241 @@
+/* ------------------------------- form-mvp ------------------------------- */
+.form-mvp {
+  display: flex;
+  height: 49px;
+  padding: 15px 30px;
+
+  border-radius: 1000px;
+  background: rgba($white, 0.1);
+
+  transition: all 0.3s ease-in-out;
+
+  input {
+    width: 100%;
+
+    background: none;
+    border: none;
+    outline: none;
+  }
+
+  input[type="text"] {
+    font-family: "Averta CY", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+
+    color: $white;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+  input[type="text"]::placeholder {
+    font-family: "Averta CY", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+
+    color: rgba($white, 0.4);
+  }
+
+  &.active {
+    background: rgba($white, 0.2);
+  }
+}
+
+.form-mvp:hover,
+.form-mvp:active,
+.form-mvp:focus-within {
+  background: rgba($white, 0.2);
+
+  transition: all 0.3s ease-in-out;
+}
+
+/* ------------------------------- form-group ------------------------------- */
+.form-group-expose {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  .form-group-expose__error {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+
+    color: $redStrong;
+  }
+}
+
+.form-group-onboarding {
+  align-items: flex-start;
+}
+
+/* ------------------------------- form-expose ------------------------------- */
+.form-expose--error {
+  border: 1px solid $redStrong !important;
+}
+
+.form-expose {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 50px;
+  padding: 13px 16px;
+
+  border-radius: 4px;
+  border: 1px solid $greyMetal;
+  background: transparent;
+
+  &.error {
+    border: 1px solid $red;
+  }
+  //transition: all 0.3s ease-in-out;
+
+  input {
+    width: 100%;
+
+    background: none;
+    border: none;
+    outline: none;
+  }
+
+  input[type="text"] {
+    padding: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    //text-align: center;
+
+    color: $blackRich;
+  }
+
+  input[type="text"]::placeholder {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    color: $silverSonic;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+  .form-expose__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 8px;
+
+    .form-expose__remove {
+      cursor: pointer;
+    }
+
+    .form-expose__count {
+    }
+
+    .form-expose__add {
+      cursor: pointer;
+    }
+  }
+
+  .form-expose__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    border: 2px solid $silverSonic;
+    border-radius: 50%;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .form-expose__icon {
+    display: block;
+    opacity: 0;
+    user-select: none;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  .form-expose__active {
+    border: 2px solid $blueTotal;
+
+    transition: all 0.2s ease-in-out;
+
+    img {
+      opacity: 1;
+    }
+  }
+
+  .form-expose__mat-icon {
+    display: flex;
+    max-width: 30px;
+    width: 100%;
+    max-height: 14px;
+    height: 100%;
+  }
+
+  .form-expose__remove {
+    cursor: pointer;
+  }
+
+  .form-expose__count {
+  }
+
+  .form-expose__add {
+    cursor: pointer;
+  }
+}
+
+.form-expose__zoom {
+  height: 40px;
+  background: $whiteNeutrals;
+}
+.form-expose--tag {
+  min-height: 50px;
+  height: auto;
+  padding: 5px 8px;
+}
+
+.form-expose--tag-small {
+  min-height: 50px;
+  height: auto;
+  padding: 8px;
+}
+
+/* ------------------------------- others style ------------------------------- */
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  padding: 0;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  overflow: hidden;
+}

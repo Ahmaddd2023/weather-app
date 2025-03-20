@@ -1,0 +1,185 @@
+
+<div class="navbar navbar-desktop-container " [ngClass]="{ 'scrolled': isScrolled }">
+    <div class="container-for-desktop-navbar">
+  <div class="navbar-logo" routerLink="">
+    <img src="/assets/img/brnz-logo-white.svg">
+  </div>
+
+
+
+  <div class="navbar-route-links mob-container">
+
+
+    <a routerLink="" class="navbar-route-link" [class.selected]="isActive('')" (click)="setActiveLink('/#', 'Home')">
+      <img class="nav-icon" src="/assets/img/nav1.svg">
+      <span class="link-text text-burger-menu">Home</span>
+    </a>
+
+<a class="navbar-route-link"
+       [class.opaque]="isLinkForMenu()"
+       [class.selected]="isAnyActive(['/agents/blockchain-manager', '/agents/any-store', '/agents/fan2Sell', '/agents/ai-personapen', '/agents/fan2Scale', '/agents/social-media-seller', '/agents/ai-datadialoger', '/agents/ai-visionverse', '/agents/ai-buttler'])"
+       (mouseenter)="onAgentsMenuHover()">
+      <img class="nav-icon" src="/assets/img/nav2.svg">
+      <span class="link-text text-burger-menu">Agents</span>
+    </a>
+
+    <div class="agents-submenu" *ngIf="isAgentsMenuOpen || isAgentsMenuHovered" style="margin-right: -30px;" >
+      <app-main-menu (goFromMenu)="onAgentsMenuLeave()"></app-main-menu>
+    </div>
+
+    <a class="navbar-route-link"
+       [class.opaque1]="onboardingActive"
+       [class.selected]="isAnyActive(['/onboarding/futureofsports', '/onboarding/musicweb3', '/onboarding/futureofentertainment'])"
+       (mouseenter)="onOnboardingMenuHover()">
+      <img class="nav-icon" src="/assets/img/nav3.svg">
+      <span class="link-text text-burger-menu">Onboarding</span>
+
+      </a>
+
+    <div class="onboarding-submenu" *ngIf="isOnboardingMenuOpen || isOnboardingMenuHovered" style="margin-right: -30px;" >
+      <app-onboarding-menu (goFromMenu)="onOnboardingMenuLeave()"></app-onboarding-menu>
+        </div>
+
+    <a class="navbar-route-link"
+       [class.selected]="isAnyActive(['/services/scalingblockchains', '/services/startup-support', '/services/our-services', 'services/web', 'services/web3.0'])"
+       (mouseenter)="onServiceMenuHover()"
+       >
+      <img class="nav-icon" src="/assets/img/nav4.svg">
+      <span class="link-text text-burger-menu">Services</span>
+    </a>
+
+    <div class="services-submenu" *ngIf="isServiceMenuOpen || isServiceMenuHovered" style="margin-right: -30px;">
+      <app-service-menu (goFromMenu)="onServiceMenuLeave()"></app-service-menu>
+    </div>
+
+    <a href="https://blog.brnz.ai" class="navbar-route-link">
+      <img class="nav-icon" src="/assets/img/nav5.svg">
+      <span class="link-text text-burger-menu">Blog</span>
+    </a>
+
+    <a routerLink="/about" class="navbar-route-link" [class.selected]="isActive('/about')" (click)="setActiveLink('/about', 'About')">
+      <img class="nav-icon" src="/assets/img/nav6.svg">
+      <span class="link-text text-burger-menu">About</span>
+    </a>
+
+    <a routerLink="/contacts" class="navbar-route-link" [class.selected]="isActive('/contacts')" (click)="setActiveLink('/contacts', 'Contacts')">
+      <img class="nav-icon" src="/assets/img/nav7.svg">
+      <span class="link-text text-burger-menu">Contacts</span>
+    </a>
+
+
+
+    <button class="navbar-btn"  [class.selected]="isActive('/schedule') || isMenuOpen" (click)="setActiveLink('/schedule', 'Schedule a Call')">
+        <a class="href-link" href="https://calendly.com/brnzai" target="_blank">Schedule a call</a>
+    </button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+ <div class="mobile-burger-menu mob-container" [ngClass]="{'menu-open': isMenuOpen || isAgentsMenuOpen}">
+
+        <div class="navbar-logo" routerLink="">
+    <img src="/assets/img/brnz-logo-white.svg">
+  </div>
+
+  <div class="place-link">
+    <img class="carbon-logo"  src="/assets/img/carbon_chevron-right.svg">
+    <div class="navbar-route-marker">
+      {{ currentRouteText }}
+    </div>
+  </div>
+
+  <div class="navbar-burger" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+
+
+
+
+         <div class="navbar-route-links mob-container" [class.open]="isMenuOpen" >
+    <div class="nav-close" (click)="goBack()"><img src="/assets/img/close-burger.svg"></div>
+
+
+             <div class="">
+
+      <div class="navbar--links">
+
+    <a routerLink="" class="navbar-route-link" [class.selected]="isActive('')" (click)="setActiveLink('/#', 'Home')">
+      <img class="nav-icon" src="/assets/img/nav1.svg">
+      <span class="link-text text-burger-menu">Home</span>
+    </a>
+
+        <a class="navbar-route-link"
+           [class.opaque]="isLinkForMenu()"
+           [class.selected]="isAnyActive(['/agents/blockchain-manager', '/agents/any-store', '/agents/fan2Sell', '/agents/ai-personapen', '/agents/fan2Scale', '/agents/social-media-seller', '/agents/ai-datadialoger', '/agents/ai-visionverse', '/agents/ai-buttler'])"
+           (click)="toggleAgentsMenu()"
+           (mouseenter)="onAgentsMenuHover()"
+           (mouseleave)="onAgentsMenuLeave()">
+          <img class="nav-icon" src="/assets/img/nav2.svg">
+          <span class="link-text text-burger-menu">Agents</span>
+        </a>
+
+
+    <div class="agents-submenu" *ngIf="isAgentsMenuOpen || isAgentsMenuHovered" style="margin-right: -30px;">
+      <app-main-menu></app-main-menu>
+    </div>
+
+        <a class="navbar-route-link"
+           [class.opaque1]="onboardingActive"
+           [class.selected]="isAnyActive(['/onboarding/futureofsports', '/onboarding/musicweb3', '/onboarding/futureofentertainment'])"
+            (click)="toggleOnboardingMenu()"
+           (mouseenter)="onOnboardingMenuHover()"
+           (mouseleave)="onOnboardingMenuLeave()">
+          <img class="nav-icon" src="/assets/img/nav3.svg">
+          <span class="link-text text-burger-menu">Onboarding</span>
+
+        </a>
+
+    <div class="onboarding-submenu" *ngIf="isOnboardingMenuOpen || isOnboardingMenuHovered" style="margin-right: -30px;">
+      <app-onboarding-menu></app-onboarding-menu>
+    </div>
+
+    <a class="navbar-route-link"
+       [class.selected]="isAnyActive(['/services/scalingblockchains', '/services/startup-support', '/services/our-services', 'services/web', 'services/web3.0'])"
+       (click)="toggleServicesMenu()">
+      <img class="nav-icon" src="/assets/img/nav4.svg">
+      <span class="link-text text-burger-menu">Services</span>
+    </a>
+
+    <div class="services-submenu" *ngIf="isServiceMenuOpen || isServiceMenuHovered" style="margin-right: -30px;">
+      <app-service-menu></app-service-menu>
+    </div>
+
+    <a href="https://blog.brnz.ai" class="navbar-route-link">
+      <img class="nav-icon" src="/assets/img/nav5.svg">
+      <span class="link-text text-burger-menu">Blog</span>
+    </a>
+
+    <a routerLink="/about" class="navbar-route-link" [class.selected]="isActive('/about')" (click)="setActiveLink('/about', 'About')">
+      <img class="nav-icon" src="/assets/img/nav6.svg">
+      <span class="link-text text-burger-menu">About</span>
+    </a>
+
+    <a routerLink="/contacts" class="navbar-route-link" [class.selected]="isActive('/contacts')" (click)="setActiveLink('/contacts', 'Contacts')">
+      <img class="nav-icon" src="/assets/img/nav7.svg">
+      <span class="link-text text-burger-menu">Contacts</span>
+    </a>
+
+                 </div></div>
+
+    <button class="navbar-btn"  [class.selected]="isActive('/schedule') || isMenuOpen" (click)="setActiveLink('/schedule', 'Schedule a Call')">
+        <a class="href-link" href="https://calendly.com/brnzai" target="_blank">Schedule a call</a>
+    </button>
+  </div>
+
+
+    </div>

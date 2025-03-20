@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+/// @type List
+$text-font-stack: "Averta CY", "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+  "Monaco", monospace !default;
+
+// Colors
+$white: #ffffff;
+$whiteSnow: #fdfdfd;
+$black: #000000;
+$blackSemi: #020710;
+$neutrals-rich-black: #001011;
+$neutrals-soft-grey: #ebedef;
+$grey-neutralsMetal: #b7b8be;
+$silver: #757780;
+$blackRich: #001011;
+$violet: #a93aff;
+$pink: #ff81ff;
+$silverSonic: #757780;
+$greyMetal: #b7b8be;
+$greySoft: #ebedef;
+$blueTotal: #2d00f7;
+$background-white: #f5f5f5;
+$whiteNeutrals: #F3F5F6;
+$red: #DD2E16;
+$redStrong: #dd2e16;
+$blueRich: #0C213D;
+/* ---------------------------------- Base ---------------------------------- */
+
+//$accent-color: $purple;
+
+/* ---------------------------------- Text ---------------------------------- */
+$text-main: rgba($white, 0.6);
+//$text-sub: rgba($dark, 0.6);
+
+/* --------------------------------- Background -------------------------------- */
+$bg-color: $white;
+
+/* --------------------------------- Buttons -------------------------------- */
+
+//$button-bg: rgba($accent-color, 0.1);
+//$button-text: $accent-color;
+//
+//$button-active-text: $white;
+//$button-active-bg: $accent-color;
+//
+//$button-disabled-bg: #e6e6e6;
+//$button-execute-bg: #e6e6e6;
+
+/* ---------------------------------- Cards --------------------------------- */
+
+//$card-bg: $grey;
+//$card-progress-bg: $dark-grey;
+//
+//$auth-card-bg: $white;
+
+/* --------------------------------- Inputs --------------------------------- */
+
+//$input-bg: $white;
+//
+//$input-bg-dark: $grey;
+//$input-placeholder: rgba($dark, 0.4);
+
+/* ---------------------------------- Utils --------------------------------- */
+
+//$divider-color: rgba($text-main, 0.15);
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+
+:root {
+  --silverSonic: #757780;
+}
+
+$breakpoints: (
+  "xs": 360px,
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1040px,
+  "xl": 1120px,
+) !default;

@@ -1,0 +1,16 @@
+.startup-breaker{
+    background-image: url(/assets/img/breaker4.svg);
+    height: 100%;
+    align-items: center;
+    background-size: cover;
+    padding-bottom: 100px;
+    padding-top: 150px;
+    
+     @media all and (max-width: 768px){
+        height: auto;
+        background-size: auto;
+        padding-bottom: 25px;
+         padding-top: 0;
+    }
+    
+}

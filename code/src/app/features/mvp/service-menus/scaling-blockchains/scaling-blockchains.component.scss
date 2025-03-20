@@ -1,0 +1,15 @@
+.scaling-breaker{
+    background-image: url(/assets/img/breaker4.svg);
+    height: 420px;
+    align-items: center;
+    background-size: cover;
+    padding-top: 150px;
+
+     @media all and (max-width: 768px){
+        height: auto;
+        padding-bottom: 25px;
+         padding-top: 0;
+         background-size: auto;
+    }
+    
+}

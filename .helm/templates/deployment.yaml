@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.werf.name }}-frontend
+spec:
+  replicas: {{ $.Values.frontend.back_replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.werf.name }}-frontend
+      env: {{ .Values.werf.env }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.werf.name }}-frontend
+        env: {{ .Values.werf.env }}
+        logging: disabled
+      annotations:
+        {{- include "anotations" . | indent 8 }}
+    spec:
+      {{- include "node.selector" . | indent 6 }}
+      serviceAccountName: default
+      containers:
+      - name: frontend
+        image: {{ .Values.werf.image.frontend }}
+        ports:
+          - name: http
+            containerPort: {{ $.Values.frontend.port }}
+      {{- include "image.secrets" . | indent 6 }}

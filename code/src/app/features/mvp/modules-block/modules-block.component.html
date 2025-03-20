@@ -1,0 +1,10 @@
+<div class="modules-blocks" (scroll)="onScroll($event)">
+  <div class="modules-block" *ngFor="let block of blocks; let i = index" [ngClass]="{'visible': isBlockActive(i)}">
+    <img [src]="block.imageUrl" class="">
+    <div class="column gap">
+      <h3 class="brn-title-700">{{ block.title }}</h3>
+      <p class="brn-text">{{ block.description }}</p>
+    </div>
+  </div>
+</div>
+

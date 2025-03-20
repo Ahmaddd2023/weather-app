@@ -1,0 +1,11 @@
+<svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="solar:card-transfer-line-duotone">
+<g id="Group">
+<path id="Vector" d="M73.3337 37.1666C73.3003 26.7866 72.9737 21.2833 69.427 17.7399C65.5237 13.8333 59.237 13.8333 46.667 13.8333H33.3337C20.7637 13.8333 14.477 13.8333 10.5737 17.7399C6.66699 21.6433 6.66699 27.9299 6.66699 40.4999C6.66699 53.0699 6.66699 59.3566 10.5737 63.2599C14.477 67.1666 20.7637 67.1666 33.3337 67.1666H38.3337" stroke="#B6FFFA" stroke-width="4" stroke-linecap="round"/>
+<path id="Vector_2" opacity="0.5" d="M66.6667 67.1665V47.1665M66.6667 47.1665L73.3333 53.8332M66.6667 47.1665L60 53.8332" stroke="#B6FFFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M51.6667 47.1665V67.1665M51.6667 67.1665L58.3333 60.4998M51.6667 67.1665L45 60.4998" stroke="#B6FFFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" opacity="0.5" d="M33.3333 53.8333H20" stroke="#B6FFFA" stroke-width="4" stroke-linecap="round"/>
+<path id="Vector_5" opacity="0.4" d="M6.66699 33.8333H73.3337" stroke="#B6FFFA" stroke-width="4" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

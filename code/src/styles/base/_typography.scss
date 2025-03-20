@@ -1,0 +1,136 @@
+/**
+ * Basic typography style for text
+ */
+body {
+  color: $text-main;
+  font: normal 100% / 1.2 $text-font-stack;
+  letter-spacing: -0.5px;
+}
+
+.title {
+  font-family: "Averta CY", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+
+  color: $white;
+}
+
+.title--size-20 {
+  font-size: 20px !important;
+}
+
+.title--grey {
+  color: rgba($white, 0.4);
+}
+
+.title--metal {
+  color: $grey-neutralsMetal;
+}
+
+.title--black {
+  color: $neutrals-rich-black;
+}
+
+.title-silver {
+  color: $silverSonic !important;
+}
+
+.text--centered {
+  text-align: center;
+}
+
+.text {
+  font-family: "Averta CY", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.title-expose {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  color: $blackRich;
+}
+
+.title-expose--blue {
+  color: $blueTotal;
+}
+
+.title-expose--size-14 {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.text-expose {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+
+  color: $silverSonic;
+}
+
+.text-onboarding {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: $blackRich;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.text-expose--size-13 {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.text-expose--size-16 {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.title-expose--size-32 {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.title-expose--size-40 {
+  font-size: 40px;
+  line-height: 56px;
+}
+
+.text-expose--greyMetal {
+  color: $greyMetal;
+}
+
+.text-expose--blackRich {
+  color: $blackRich;
+}
+
+.text-expose--size-26 {
+  font-family: Plus Jakarta Sans;
+  font-size: 26px;
+  line-height: 36px;
+}
+
+.text-expose--color-26 {
+  color: var(--neutrals-rich-black, #001011);
+  text-align: center;
+}
+
+.text-expose--size-14{
+    justify-content: center;
+    display: flex;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+

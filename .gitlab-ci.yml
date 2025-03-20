@@ -1,0 +1,59 @@
+variables:
+  WERF_KUBECONFIG_BASE64: $KUBE_CONFIG
+
+stages:
+  - build
+  - deploy
+  - cleanup
+
+before_script:
+  - source "$(~/bin/trdl use werf 1.2 stable)"
+  - type werf && source $(werf ci-env gitlab --as-file)
+
+.base_build:
+  stage: build
+  script:
+    - git branch
+    - werf build --env=$CI_COMMIT_BRANCH
+  except: [schedules]
+  tags: [werf]
+
+.base_deploy:
+  stage: deploy
+  script:
+    - git branch
+    - werf converge --require-built-images --set "environment=${CI_ENVIRONMENT_NAME}" --values=$WERF_VALUES.helm/values-${CI_ENVIRONMENT_NAME}.yaml
+  except: [schedules]
+
+build DEV:
+  extends: .base_build
+  environment:
+    name: dev
+  only: [dev]
+
+build PROD:
+  extends: .base_build
+  environment:
+    name: production
+  only: [main]
+
+deploy to DEV:
+  extends: .base_deploy
+  environment:
+    name: dev
+  only: [dev]
+  tags: [werf]
+
+deploy to Production:
+  extends: .base_deploy
+  environment:
+    name: prod
+  only: [main]
+  tags: [werf]
+
+cleanup:
+  stage: cleanup
+  script:
+    - werf cleanup
+  only: [schedules]
+  tags: [werf]
