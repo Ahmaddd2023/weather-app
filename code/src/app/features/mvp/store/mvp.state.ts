@@ -1,58 +1,50 @@
-import { Action, State, StateContext } from '@ngxs/store';
-import { Injectable, NgZone } from '@angular/core';
-
-import {
-  MvpStateModel} from './mvp-state.model';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { Injectable } from '@angular/core';
+import { GetWeather, GetForecast } from './mvp.actions';
+import { tap } from 'rxjs/operators';
 import { MvpService } from '../services/mvp.service';
-import { Router } from '@angular/router';
-import {ChangeMessageStatus, ContactUs} from "./mvp.actions";
-import {catchError, tap, throwError} from "rxjs";
+
+export interface MvpStateModel {
+  weather: any;
+  forecast: any;
+}
 
 @State<MvpStateModel>({
   name: 'mvp',
+  defaults: {
+    weather: null,
+    forecast: null
+  }
 })
 @Injectable()
 export class MvpState {
-  constructor(
-    private mvpService: MvpService,
-    private zone: NgZone,
-    private router: Router,
-  ) {}
+  constructor(private mvpService: MvpService) {}
 
+  @Selector()
+  static getWeather(state: MvpStateModel) {
+    return state.weather;
+  }
 
+  @Selector()
+  static getForecast(state: MvpStateModel) {
+    return state.forecast;
+  }
 
-  @Action(ContactUs)
-  createDocumentProduct(
-    { patchState, getState }: StateContext<MvpStateModel>,
-    { email, name, message }: ContactUs,
-  ): any {
-    patchState({
-      status: false,
-    });
-    return this.mvpService.contactUs(name, message, email).pipe(
-      tap((res) => {
-        if (res.status) {
-          patchState({
-            status: res.status
-          });
-        }
-      }),
-      catchError((err) => {
-        patchState({
-          status: false,
-        });
-        return throwError(err);
-      }),
+  @Action(GetWeather)
+  getWeather(ctx: StateContext<MvpStateModel>, action: GetWeather) {
+    return this.mvpService.getWeather(action.city).pipe(
+      tap((weather) => {
+        ctx.patchState({ weather });
+      })
     );
   }
 
-   @Action(ChangeMessageStatus)
-    setCurrentForm(
-      { patchState }: StateContext<MvpStateModel>,
-      {  }: ChangeMessageStatus,
-    ): any {
-      patchState({
-        status: false,
-      });
-    }
+  @Action(GetForecast)
+  getForecast(ctx: StateContext<MvpStateModel>, action: GetForecast) {
+    return this.mvpService.getForecast(action.city).pipe(
+      tap((forecast) => {
+        ctx.patchState({ forecast });
+      })
+    );
+  }
 }

@@ -2,7 +2,8 @@
  * Basic typography style for text
  */
 body {
-  color: $text-main;
+  //color: $text-main;  
+  color: #fff;    
   font: normal 100% / 1.2 $text-font-stack;
   letter-spacing: -0.5px;
 }
